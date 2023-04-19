@@ -1,0 +1,14 @@
+﻿// INIZIALIZZARE UNO SHOP 
+// LISTA PRODOTTI
+// SI POSSONO CHIEDERE OGNUNA DELLE INFORMAZIONI CONTENUTE NEL NEGOZIO
+// SI POSSA MODIFICARE ALCUNE INFORMAZIONI
+// SI POSSA INSERIRE LA LISTA DI PRODOTTI INIZIALI O NUOVI
+// SI POSSA INSERIRE ANCHE UN PRODOTTO SINGOLO 
+// LA RAPPRESENTAZIONE IN STRINGA E SI POSSA STAMPARLE IN CONSOLE
+
+using CSharp_Composizione_Shop;
+
+Shop negozio = new Shop("Negozio", "Palermo", "Via Roma", 89);
+
+itemShop verdura = new itemShop("Insalata", "Verdura");
+itemShop cazziDiGomma = new itemShop("Cazzi di gomma", "SexItem");
