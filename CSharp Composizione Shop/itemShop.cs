@@ -9,14 +9,13 @@ namespace CSharp_Composizione_Shop
     public class itemShop
     {
         private string name;
-        private string cateogries;
-
+        private List<Category> categories;
         // COSTRUTTORE
 
-        public itemShop(string name, string cateogories)
+        public itemShop(string name)
         {
             this.name = name;
-            this.cateogries = cateogories;
+            this.categories = new List<Category>();
         }
 
         // GETTERS 
@@ -26,17 +25,30 @@ namespace CSharp_Composizione_Shop
             return this.name;
         }
 
-        public string GetCateogries()
+        public List<Category> GetCategoriesList()
         {
-            return this.cateogries;
+            return this.categories;
         }
+        
 
         public string GetItemString()
         {
             string rapprString = "Nome prodotto: " + this.name + "\n";
-            rapprString += "La categoria cui appartiene è : " + this.cateogries + "\n";
+            rapprString += "\t Categorie prodotto: \n";
+            foreach(Category categoriaScansionata in categories)
+            {
+                rapprString += "\t - " + categoriaScansionata.GetName() + "\n";
+                rapprString += "\t" + categoriaScansionata.GetDescription() + "\n";
+                rapprString += "\t" + categoriaScansionata.GetCode();
+            }
+
             return rapprString;
 
+        }
+
+        public void addCaetogy(Category newCategory)
+        {
+            this.categories.Add(newCategory);
         }
     }
 }

@@ -8,7 +8,28 @@
 
 using CSharp_Composizione_Shop;
 
-Shop negozio = new Shop("Negozio", "Palermo", "Via Roma", 89);
+// DEFINISCO IL MIO SHOP
 
-itemShop verdura = new itemShop("Insalata", "Verdura");
-itemShop cazziDiGomma = new itemShop("Cazzi di gomma", "SexItem");
+Shop negozio = new Shop("Di tutto e di più", "Palermo", "Via Roma", 89, "Alimentare");
+
+// DEFINISCO I PRODOTTI CHE IL MIO SHOP TRATTA
+itemShop insalata = new itemShop("Insalata");
+itemShop pollo = new itemShop("Pollo");
+itemShop acqua = new itemShop("Acqua");
+
+// DEFINISCO LE CATEGOIRE PER I MIEI PRODOTTO
+Category verdura = new Category("Verdura", "Insalata verde");
+Category carne = new Category("Carne", "Pollo allevato a terra");
+Category bevande = new Category("Bevande", "Bevande");
+
+// ASSOCIO I PRODOTTI CON LE LORO CATEGORIE
+insalata.addCaetogy(verdura);
+pollo.addCaetogy(carne);
+acqua.addCaetogy(bevande);
+
+negozio.addItem(insalata);
+negozio.addItem(pollo);
+negozio.addItem(acqua);
+
+
+Console.WriteLine(negozio.InfoShop());

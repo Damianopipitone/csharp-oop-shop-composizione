@@ -15,17 +15,19 @@ namespace CSharp_Composizione_Shop
         private string city;
         private string address;
         private int civicNumber;
-        private List<itemShop> itemShop;
+        private string type;
+        private List<itemShop> itemsInShop;
 
         // COSTRUTTORE
 
-        public Shop(string name, string city, string address, int civicNumber)
+        public Shop(string name, string city, string address, int civicNumber, string type)
         {
             this.name = name;
             this.city = city;
             this.address = address;
             this.civicNumber = civicNumber;
-            this.itemShop = new List<itemShop>();
+            this.type = type;
+            this.itemsInShop = new List<itemShop>();
         }
 
         // GETTERS
@@ -52,14 +54,46 @@ namespace CSharp_Composizione_Shop
 
         public List<itemShop> GetShopList()
         {
-            return this.itemShop;
+            return this.itemsInShop;
         }
 
-        // SETTERS 
+        // SETTERS
 
-        public void SetCategories(string categories)
+        public void SetType(string type)
         {
-            this.
+            this.type = type;
+        }
+
+        // METODI
+
+        public void addItem(itemShop newItemShop)
+        {
+            itemsInShop.Add(newItemShop);
+        }
+
+        public void AddListItems(List<itemShop> newItems)
+        {
+            //itemShop = (List<itemShop>)itemShop.Concat(newItems);
+
+            foreach(itemShop itemScansionato in newItems)
+            {
+                itemsInShop.Add(itemScansionato);
+            }
+        }
+
+        public string InfoShop()
+        {
+            string rapprInfoShop = "Il nome del negozio è: " + this.name + "\n";
+            rapprInfoShop += "La città in cui si trova è: " + this.city + "\n";
+            rapprInfoShop += "All'indirizzo: " + this.address + "\n";
+            rapprInfoShop += "Numero civico: " + this.civicNumber + "\n";
+            rapprInfoShop += "Lista prodotti trattati: " + "\n";
+            foreach(itemShop itemScansionato in itemsInShop)
+            {
+                rapprInfoShop += " - " + itemScansionato.GetItemString() + "\n";
+            }
+            return rapprInfoShop;
+
         }
     }
 
